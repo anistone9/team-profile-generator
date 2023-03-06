@@ -1,10 +1,61 @@
-const generateHTML = team =>
-
-const generateManager = manager => {
-    
+//Template literal for each role, pulling information from index.js
+const generateManager = function (manager) {
+    return `<section class="card">
+    <h2>${manager.name}
+      <p>Manager</p>
+    </h2>
+    <p class="list-group-item">ID: ${manager.id}</p>
+    <p class="list-group-item">Email: <a href="mailto:${manager.email}">${manager.email}</a></p>
+    <p class="list-group-item">Office Number: ${manager.officeNumber}</p>
+  </section>`;
 }
 
-    `<!DOCTYPE html>
+const generateEngineer = function (engineer) {
+    return `<section class="card">
+    <h2>${engineer.name}
+        <p>Software Engineer</p>
+    </h2>
+    <p class="list-group-item">ID: ${engineer.id}</p>
+    <p class="list-group-item">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></p>
+    <p class="list-group-item">GitHub: <a href="https://github.com/${engineer.github}/" target="_blank">${engineer.github}</a></p>
+    </section>`;
+}
+
+const generateIntern = function (intern) {
+    return `<section class="card">
+    <h2>${intern.name}
+      <p>Intern</p>
+    </h2>
+    <p class="list-group-item">ID: ${intern.id}</p>
+    <p class="list-group-item">Email: <a href="mailto:${intern.email}">${intern.email}</a></p>
+    <p class="list-group-item">School: ${intern.school}</p>
+  </section>`;
+}
+
+//Looping through team array to create the card for each team member
+const generateTeam = team => {
+    teamArray = [];
+
+    for (let i = 0; i < team.length; i++) {
+        const employee = team[i];
+        let employeeCard = '';
+        const position = employee.getRole();
+
+        if (position == "Manager") {
+            employeeCard = generateManager(employee);
+        } else if (position == "Engineer") {
+            employeeCard = generateEngineer(employee);
+        } else if (position == "Intern") {
+            employeeCard = generateIntern(employee);
+        }
+        teamArray.push(employeeCard);
+    }
+    let employeeCards = teamArray.join('');
+    return generateHTML(employeeCards);
+}
+
+const generateHTML = employeeCards => {
+    return `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -45,10 +96,8 @@ const generateManager = manager => {
             color: #fff;
         }
 
-        ul {
-            max-width: 400px;
-            margin: 5% 0;
-            display: block;
+        .list-group-items {
+            padding: 20px 20px 10px 30px;
         }
 
         .teammates {
@@ -77,15 +126,9 @@ const generateManager = manager => {
         }
 
         .card p {
-            text-align: left;   
+            text-align: left;
         }
 
-        */ @media screen and (max-width: 768px) {
-        main,
-        nav {
-            flex-direction: column;
-        }
-    }
     </style>
   </head>
 
@@ -96,62 +139,12 @@ const generateManager = manager => {
 
     <main>
       <div class="teammates">
-        <section class="card">
-          <h2>${name}
-            <p>${position}</p>
-          </h2>
-          <ul class="list-group">
-            <li class="list-group-item">${id}: </li>
-            <li class="list-group-item">${email}: </li>
-            <li class="list-group-item">${office}: </li>
-          </ul>
-        </section>
-
-        <section class="card">
-          <h2>${name}
-            <p>${position}</p>
-          </h2>
-          <ul class="list-group">
-            <li class="list-group-item">${id}: </li>
-            <li class="list-group-item">${email}: </li>
-            <li class="list-group-item">${github}: </li>
-          </ul>
-        </section>
-
-        <section class="card">
-          <h2>${name}
-            <p>${position}</p>
-          </h2>
-          <ul class="list-group">
-            <li class="list-group-item">${id}: </li>
-            <li class="list-group-item">${email}: </li>
-            <li class="list-group-item">${github}: </li>
-          </ul>
-        </section>
-
-        <section class="card">
-          <h2>${name}
-            <p>${position}</p>
-          </h2>
-          <ul class="list-group">
-            <li class="list-group-item">${id}: </li>
-            <li class="list-group-item">${email}: </li>
-            <li class="list-group-item">${github}: </li>
-          </ul>
-        </section>
-
-        <section class="card">
-            <h2>${name}
-                <p>${position}</p>
-            </h2>
-            <ul class="list-group">
-                <li class="list-group-item">${id}: </li>
-                <li class="list-group-item">${email}: </li>
-                <li class="list-group-item">${github}: </li>
-              </ul>
-          </section>
+      ${employeeCards}
       </div>
     </main>
 
   </body>
 </html>`;
+}
+
+module.exports = generateTeam;
