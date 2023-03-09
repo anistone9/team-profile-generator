@@ -20,12 +20,9 @@ To use this Team-Profile Generator, open the integrated terminal in Visual Studi
 
 ## Demo   
 
+https://user-images.githubusercontent.com/58886869/223930314-ff6aea6d-18e0-499c-aadd-1d84d056f452.mp4
 
-https://user-images.githubusercontent.com/58886869/221448829-0144ecfd-df34-4247-b24f-ff167fb52598.mp4
-
-
-https://drive.google.com/file/d/1OvROr1HBMOKyhR0RCyRvHVPekI-WCRCw/view?usp=sharing
-
+https://drive.google.com/file/d/1uD2v4K8ggvHStrBAn4sawFc32u8vIuXH/view
 
 ## Credits   
 University of Arizona Coding Bootcamp resources (mock-up and lesson examples) 
