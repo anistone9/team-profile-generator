@@ -2,7 +2,7 @@
 Node.js Command-Line Application to Generate an HTML Webpage Using Object-Oriented Programming
 
 ## Description   
-This application allows users to create professional README files for their projects, based on user input via command-line and Node.js. The generated file includes a title, description of the application, instructions on how to install, use and test the application, along with license information and contributions.    
+This command-line application allows users to general an HTML webpage that displays a summary of their team, based on information provided via command-line prompts. The generated file includes a title header, and team cards for each team member. Each card is populated with information based on the role on the team.    
 
 # Table of Contents   
 - [Description](#description)   
@@ -13,10 +13,10 @@ This application allows users to create professional README files for their proj
 - [License](#license)     
 
 ## Installation   
-Clone the repository in GitHub, and install Node.js. Additionally, this application requires fs module and inquirer (version 8.2.4 used in this case).    
+Clone the repository in GitHub, and install Node.js. Additionally, this application requires fs module and inquirer (version 8.2.4 used in this case), as well as jest (npm install -D jest).      
 
 # Usage    
-To use this Team-Profile Generator, open the integrated terminal in Visual Studio Code, and type 'node index.' Next, follow the suite of questions and provide answers for each one. When done going through all the questions, a message 'Successfully created index.html file' is displayed. The generated HTML file includes a header and a card for each role  on the team. Each card includes a title, employee ID, and email address. The Engineer cards also include the GitHub username and link, while the Intern card includes the name of the school. Clicking the email address in a card open the     
+To use this Team-Profile Generator, open the integrated terminal in Visual Studio Code, and type 'node index.' Next, follow the suite of questions and provide answers for each one. When done going through all the questions, a message for 'Successfully created index.html file' is displayed. The generated HTML file includes a header and a card for each role on the team. Each card includes a title, employee ID, and email address. The Engineer cards also include the GitHub username and link, while the Intern card includes the name of the school. Clicking the email address in a card opens the default email program, with the card email address in the TO field. Clicking the GitHub link opens that GitHub profile in a new tab.    
 
 ## Demo   
 
