@@ -4,33 +4,29 @@ describe('employeeMethods', () => {
 
     describe('getName', () => {
         it('should return the employee name', () => {
-            const employee = new Employee('Tester');
-            const employeeName = employee.getName();
-            expect(employeeName).toEqual('Tester');
+            const employee = new Employee('Tester', 1, 'tester@email.com');
+            expect(employee.getName()).toBe('Tester');
         });
     });
 
     describe('getID', () => {
         it('should return the employee ID', () => {
-            const employee = new Employee(001);
-            const employeeID = employee.getID();
-            expect(employeeID).toEqual(001);
+            const employee = new Employee('Tester', 1, 'tester@email.com');
+            expect(employee.getID()).toBe(1);
         });
     });
 
     describe('getEmail', () => {
         it('should return the employee email', () => {
-            const employee = new Employee('tester@email.com');
-            const employeeEmail = employee.getEmail();
-            expect(employeeEmail).toEqual('tester@email.com');
+            const employee = new Employee('Tester', 1, 'tester@email.com');
+            expect(employee.getEmail()).toBe('tester@email.com');
         });
     });
 
     describe('getRole', () => {
         it('should return Employee', () => {
             const employee = new Employee;
-            const employeeRole = employee.getRole();
-            expect(employeeRole).toEqual('Employee');
+            expect(employee.getRole()).toBe('Employee');
         });
     });
 })
